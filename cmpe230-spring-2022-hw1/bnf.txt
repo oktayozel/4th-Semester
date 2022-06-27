@@ -1,0 +1,84 @@
+# The syntax of MatLang in Backus-Naur Form
+
+<expr> ::= <term> <moreterms>
+<moreterms> ::= "+" <term> <moreterms> | "-" <term> <moreterms> | E
+<term> ::= <factor> <morefactors>
+<morefactors> ::= "*" <factor> <morefactors> | E
+<factor> ::= "(" <expr> ")" | "tr" "(" <expr> ")" | "sqrt" "(" <expr> ")" | "choose" "(" <expr> "," <expr> "," <expr> "," <expr> ")" | <number> | <identifier>
+
+<for> ::= "for" "(" <identifier> "in" <expr> ":" <expr> ":" <expr> ")" "{"
+<nestedfor> ::= "for" "(" <identifier> "," <identifier> "in" <expr> ":" <expr> ":" <expr> "," <expr> ":" <expr> ":" <expr> ")" "{" 
+
+<endofblock> ::= "}"
+
+<creatingscalar> ::= "scalar" <identifier>
+<creatingvector> ::= "vector" <identifier> "[" <number> "]"
+<creatingmatrix> ::= "matrix" <identifier> "[" <number> "," <number> "]"
+
+
+<assignment> ::= <identifier> "=" <expr> | <identifier> "=" <number> | <identifier> "=" "{" <number> <morenumbers> "}"
+
+<morenumbers> ::= <number> <morenumbers> | E
+
+<print> ::= "print" "(" <identifier> ")"
+<printsep> ::= "printsep" "(" ")"
+
+<linewithoutcomment> ::= <for> | <nestedfor> | <creatingscalar> | <creatingvector> | <creatingmatrix> | <assignment> | <print> | <printsep> | <endofblock> | E
+
+<line> ::= <linewithoutcomment> | <linewithoutcomment> "#" <comment>
+
+<number> ::= <digit> <moredigits>
+<moredigits> ::= <digit> <moredigits> | E
+<digit> ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+
+<identifier> ::= <alpha> <morealphanumeric> | "_" <morealphanumeric>
+<morealphanumeric> ::= <alpha> <morealphanumeric> | <digit> <morealphanumeric> | "_" <morealphanumeric> | E
+<alpha> ::= "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j" | "k" | "l" | "m" | "n" | "o" | "p" | "q" | "r" | "s" | "t" | "u" | "v" | "w" | "x" | "y" | "z" | "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" | "J" | "K" | "L" | "M" | "N" | "O" | "P" | "Q" | "R" | "S" | "T" | "U" | "V" | "W" | "X" | "Y" | "Z"
+
+
+<comment> ::= <anycharacter> <morecharacters>
+<morecharacters> ::= <anycharacter> <morecharacters> | E
+<anycharacter> ::= "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j" | "k" | "l" | "m" | "n" | "o" | "p" | "q" | "r" | "s" | "t" | "u" | "v" | "w" | "x" | "y" | "z" | "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" | "J" | "K" | "L" | "M" | "N" | "O" | "P" | "Q" | "R" | "S" | "T" | "U" | "V" | "W" | "X" | "Y" | "Z" | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "_" | "." | "," | ":" | ";" | "!" | "?" | "-" | "+" | "*" | "/" | "(" | ")" | "{" | "}" | "[" | "]" | "\"" | "'" | " " | "\t" | "\n" | "\r" | "#" | "&" | "|" | ">" | "<" | "=" | "~" | "`" | "^" | "\\" | "\"" | " " | "\t" | "\n" | "\r" | "#" | "&" | "|" | ">" | "<" | "=" | "~" | "`" | "^" | "\\" | "\"" | " " | "\t" | "\n" | "\r" | "#" | "&" | "|" | ">" | "<" | "=" | "~" | "`" | "^" | "\\" | "\"" | " " | "\t" | "\n" | "\r" | "#" | "&"
+
+
+
+# Generic BNF
+
+<expr> ::= <term> <moreterms>
+<moreterms> ::= "+" <term> <moreterms> | "-" <term> <moreterms> | E
+<term> ::= <factor> <morefactors>
+<morefactors> ::= "*" <factor> <morefactors> | E
+<factor> ::= "(" <expr> ")" | "tr" "(" <expr> ")" | "sqrt" "(" <expr> ")" | "choose" "(" <expr> "," <expr> "," <expr> "," <expr> ")" | <number> | <identifier>
+
+<for> ::= "for" "(" <identifier> "in" <expr> ":" <expr> ":" <expr> ")" "{"
+<nestedfor> ::= "for" "(" <identifier> "," <identifier> "in" <expr> ":" <expr> ":" <expr> "," <expr> ":" <expr> ":" <expr> ")" "{" 
+
+<endofblock> ::= "}"
+
+<creatingscalar> ::= "scalar" <identifier>
+<creatingvector> ::= "vector" <identifier> "[" <number> "]"
+<creatingmatrix> ::= "matrix" <identifier> "[" <number> "," <number> "]"
+
+
+<assignment> ::= <identifier> "=" <expr> | <identifier> "=" <number> | <identifier> "=" "{" <number> <morenumbers> "}"
+
+<morenumbers> ::= <number> <morenumbers> | E
+
+<print> ::= "print" "(" <identifier> ")" | "printsep" "("  ")"
+
+<linewithoutcomment> ::= <for> | <nestedfor> | <creatingscalar> | <creatingvector> | <creatingmatrix> | <assignment> | <print> | <endofblock> | E
+
+<line> ::= <linewithoutcomment> | <linewithoutcomment> "#" <comment>
+
+<number> ::= <digit> <moredigits>
+<moredigits> ::= <digit> <moredigits> | E
+<digit> ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+
+<identifier> ::= <alpha> <morealphanumeric> | "_" <morealphanumeric>
+<morealphanumeric> ::= <alpha> <morealphanumeric> | <digit> <morealphanumeric> | "_" <morealphanumeric> | E
+<alpha> ::= "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j" | "k" | "l" | "m" | "n" | "o" | "p" | "q" | "r" | "s" | "t" | "u" | "v" | "w" | "x" | "y" | "z" | "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" | "J" | "K" | "L" | "M" | "N" | "O" | "P" | "Q" | "R" | "S" | "T" | "U" | "V" | "W" | "X" | "Y" | "Z"
+
+
+<comment> ::= <anycharacter> <morecharacters>
+<morecharacters> ::= <anycharacter> <morecharacters> | E
+<anycharacter> ::= "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j" | "k" | "l" | "m" | "n" | "o" | "p" | "q" | "r" | "s" | "t" | "u" | "v" | "w" | "x" | "y" | "z" | "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" | "J" | "K" | "L" | "M" | "N" | "O" | "P" | "Q" | "R" | "S" | "T" | "U" | "V" | "W" | "X" | "Y" | "Z" | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "_" | "." | "," | ":" | ";" | "!" | "?" | "-" | "+" | "*" | "/" | "(" | ")" | "{" | "}" | "[" | "]" | "\"" | "'" | " " | "\t" | "\n" | "\r" | "#" | "&" | "|" | ">" | "<" | "=" | "~" | "`" | "^" | "\\" | "\"" | " " | "\t" | "\n" | "\r" | "#" | "&" | "|" | ">" | "<" | "=" | "~" | "`" | "^" | "\\" | "\"" | " " | "\t" | "\n" | "\r" | "#" | "&" | "|" | ">" | "<" | "=" | "~" | "`" | "^" | "\\" | "\"" | " " | "\t" | "\n" | "\r" | "#" | "&"

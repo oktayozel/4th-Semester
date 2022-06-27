@@ -1,0 +1,18 @@
+scalar i
+scalar j
+
+vector primes[100]
+
+primes[1] = 1
+primes[2] = 0
+
+for(i, j in 2:100:1, i+i:100:i){
+    print(i)
+    print(primes[i])
+    printsep()
+    primes[j] = choose(primes[i], 1, primes[j], primes[j])
+}
+
+for(i in 1:100:1){
+    print(choose(primes[i], 1, 2, 3))
+}

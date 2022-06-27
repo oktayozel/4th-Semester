@@ -1,0 +1,29 @@
+matrix A[2, 2]
+matrix InvA[2, 2]
+scalar detA
+scalar minusOne
+
+
+scalar a
+scalar b
+scalar c
+scalar d
+
+minusOne = 2-1
+A = {1 2 3 5}
+
+
+
+a = A[1, 1]
+b = A[1, 2]
+c = A[2, 1]
+d = A[2, 2]
+detA = a*d - b*c
+InvA[1 , 1] = d
+InvA[1 , 2] = minusOne*b
+InvA[2 , 1] = minusOne*c
+InvA[2 , 2] = a
+print(InvA)
+printsep ()
+print(detA)
+

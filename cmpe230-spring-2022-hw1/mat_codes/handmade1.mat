@@ -1,0 +1,15 @@
+matrix A [  1, 5]
+vector i [3]
+matrix PRINTMATRIX [ 2, 2]
+A = {1 2 3 4 5}
+i = {1 0 1}
+
+i[1] = i[2] - i[3]
+
+
+
+PRINTMATRIX[2, 2] = A[1, choose(i[2],1,2,3)] # iç içe kareli parantezler var, ve matrix'in bir noktasina atama yapiliyor. çok zor çok zor
+
+print(PRINTMATRIX)
+print(PRINTMATRIX[1, 1])
+print(PRINTMATRIX[2, 2])
